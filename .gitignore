@@ -1,0 +1,18 @@
+﻿# Raw source data
+data/raw/
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Power BI temporary files
+*.tmp
+~$*.pbix

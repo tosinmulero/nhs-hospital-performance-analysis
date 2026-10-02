@@ -1,0 +1,8 @@
+region,ae_emergency_admissions,over_4h_decision_to_admit,over_12h_decision_to_admit,over_4h_per_1000_admissions,over_12h_per_1000_admissions
+NHS England North West,295542.0,106888.0,48152.0,361.67,162.93
+NHS England Midlands,376782.0,133745.0,61366.0,354.97,162.87
+NHS England London,259891.0,90642.0,40973.0,348.77,157.65
+NHS England South East,305569.0,78144.0,33841.0,255.73,110.75
+NHS England South West,187125.0,58818.0,18022.0,314.32,96.31
+NHS England East Of England,225723.0,64085.0,21656.0,283.91,95.94
+NHS England North East And Yorkshire,342859.0,88997.0,15807.0,259.57,46.1
