@@ -1,4 +1,4 @@
-﻿# Raw source data
+# Raw source data
 data/raw/
 
 # Python cache
@@ -16,3 +16,8 @@ Thumbs.db
 # Power BI temporary files
 *.tmp
 ~$*.pbix
+
+# Local development
+.venv/
+venv/
+backups/

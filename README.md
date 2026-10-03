@@ -1,352 +1,172 @@
-# NHS Hospital Performance & Patient Flow Analysis
+<p align="center">
+  <img src="images/readme/hero.svg" alt="NHS Hospital Performance & Patient Flow Analysis" width="100%">
+</p>
 
-## Dashboard
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square" alt="Python">
+  <img src="https://img.shields.io/badge/pandas-150458?style=flat-square" alt="pandas">
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/SQL-0EA5E9?style=flat-square" alt="SQL">
+  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square" alt="Power BI">
+  <img src="https://img.shields.io/badge/DAX-7C3AED?style=flat-square" alt="DAX">
+  <img src="https://img.shields.io/badge/Power%20Query-10B981?style=flat-square" alt="Power Query">
+</p>
+
+<p align="center"><b>Python • PostgreSQL • SQL • Power BI • DAX • Healthcare Analytics</b></p>
+
+An end-to-end NHS England A&E analytics project examining demand, four-hour performance, regional variation, decision-to-admit delays, 12-hour waits and Type 1 provider performance change from **April to August 2026**.
+
+> **Interpretation standard:** provider comparisons are contextualised by department type and data-quality notes. Correlation is not presented as causation.
+
+---
+
+## 🎯 Executive Snapshot
+
+| KPI | Result |
+| --- | ---: |
+| Analysis period | **Apr–Aug 2026** |
+| Provider-month records | **956** |
+| Unique provider codes | **192** |
+| Type 1 benchmark providers | **120** |
+| July A&E attendances | **2,487,580** |
+| April national 4-hour performance | **76.91%** |
+| August national 4-hour performance | **75.04%** |
+| Provider-level correlation | **r = -0.235** |
+
+---
+
+## 🧩 Business Problem
+
+The project asks:
+
+1. How did A&E demand change between April and August 2026?
+2. How did national four-hour performance change?
+3. How did performance vary across NHS England regions?
+4. Which Type 1 providers improved or deteriorated most?
+5. Where were 12-hour decision-to-admit waits most prevalent?
+6. What relationship exists between four-hour performance and severe admission delays?
+7. How stable was the composition of A&E demand?
+
+---
+
+## 🏗️ Analytical Architecture
+
+```mermaid
+flowchart LR
+    A["NHS England monthly workbooks"] --> B["Python cleaning + validation"]
+    B --> C["Processed provider-month dataset"]
+    C --> D["PostgreSQL"]
+    D --> E["SQL analysis + analytical view"]
+    E --> F["Power BI + DAX"]
+    F --> G["Provider benchmarking dashboard"]
+```
+
+Full design: [`docs/TECHNICAL_ARCHITECTURE.md`](docs/TECHNICAL_ARCHITECTURE.md)
+
+---
+
+## 📊 Dashboard
 
 ![NHS Hospital Performance Dashboard](images/nhs_dashboard_overview.png)
-
 
 ### Provider Performance Change Analysis
 
 ![Provider Change Analysis](images/nhs_provider_change_analysis.png)
 
+---
+
+## 🔎 Key Findings
+
+- A&E attendances peaked in **July 2026 at 2,487,580**.
+- National four-hour performance declined from **76.91% in April** to **75.04% in August**.
+- All seven NHS England regions recorded lower four-hour performance in August than in April.
+- The largest April-to-August regional declines were approximately **-2.48 percentage points** in both East of England and South East.
+- The lowest Type 1 performance quartile recorded **136.80 twelve-hour waits per 1,000 admissions** versus **88.90** in the top quartile.
+- The provider-level correlation between four-hour performance and 12-hour waits was **r = -0.235**, a weak negative association.
+- Birmingham Women's and Children's NHS Foundation Trust improved by **+11.39 percentage points**.
+- York and Scarborough Teaching Hospitals NHS Foundation Trust deteriorated by **-12.60 percentage points**.
 
 ---
 
-## Project Overview
+## 💼 Decision-Support Recommendations
 
-This project analyses NHS England A&E Attendances and Emergency Admissions provider-level data from **April to August 2026**.
-
-The analysis focuses on:
-
-- A&E attendance demand
-- Four-hour performance
-- Regional variation
-- Type 1 Major A&E provider benchmarking
-- Decision-to-admit delays
-- 12-hour waits
-- Provider performance changes
-- Patient-flow trends
-
-The project demonstrates an end-to-end analytics workflow using **Python, PostgreSQL, SQL, Power BI, Power Query and DAX**.
+- Use provider benchmarking to identify organisations requiring deeper operational investigation.
+- Track severe admission-delay rates alongside four-hour performance rather than relying on one KPI.
+- Monitor month-on-month provider change to detect emerging operational deterioration.
+- Interpret regional/provider comparisons alongside service configuration, case mix and local conditions.
+- Maintain explicit data-quality flags where source submissions may be revised.
 
 ---
 
-## Business Questions
+## 🧠 Analytical Engineering
 
-1. How did total A&E demand change between April and August 2026?
-2. How did national four-hour performance change?
-3. How did performance vary across NHS England regions?
-4. Which Type 1 providers reported higher or lower four-hour performance?
-5. Which regions experienced the highest rates of 12-hour decision-to-admit waits?
-6. How did severe admission delays change over time?
-7. Which Type 1 providers improved most between April and August?
-8. Which providers experienced the largest deterioration?
-9. Did the composition of A&E demand change substantially during the period?
+The project demonstrates:
 
----
-
-## Data Source
-
-**NHS England — A&E Attendances and Emergency Admissions**
-
-Provider-level monthly workbooks used:
-
-- April 2026
-- May 2026
-- June 2026
-- July 2026
-- August 2026
-
-Raw source workbooks are excluded from the repository.
+- import and standardisation of five NHS Excel workbooks;
+- provider/month identifier validation;
+- reconciliation of attendance and performance totals;
+- duplicate and missing-value checks;
+- PostgreSQL analytical storage;
+- SQL-based national, regional and provider benchmarking;
+- a reusable Power BI analytical view;
+- DAX measures for four-hour performance, admission rate, 12-hour waits and provider change;
+- weighted/aggregated percentage calculation rather than averaging provider percentages.
 
 ---
 
-## Tools & Technologies
+## 🧰 Technology Stack
 
-- Python
-- pandas
-- Jupyter Notebook
-- PostgreSQL
-- SQL
-- pgAdmin
-- Power BI
-- Power Query
-- DAX
-- VS Code
-- Git
-- GitHub
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square" alt="Python">
+  <img src="https://img.shields.io/badge/pandas-150458?style=flat-square" alt="pandas">
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/SQL-0EA5E9?style=flat-square" alt="SQL">
+  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square" alt="Power BI">
+  <img src="https://img.shields.io/badge/DAX-7C3AED?style=flat-square" alt="DAX">
+  <img src="https://img.shields.io/badge/Power%20Query-10B981?style=flat-square" alt="Power Query">
+</p>
 
----
-
-## Data Preparation
-
-Python was used to:
-
-- Import five NHS Excel workbooks
-- Extract the `Provider Level Data` worksheet
-- Standardise workbook structures
-- Assign reporting months
-- Clean provider identifiers and names
-- Convert analytical fields to numeric types
-- Validate attendance totals
-- Validate four-hour performance calculations
-- Detect duplicate provider-month records
-- Identify missing values
-- Separate non-provider data-quality notes
-- Combine the five monthly datasets
-
-The final cleaned dataset contains:
-
-**956 provider-month records across 192 unique provider codes.**
+**Python · pandas · PostgreSQL · SQL · Power BI · Power Query · DAX · Jupyter · Git · GitHub · VS Code**
 
 ---
 
-## Data Quality
+## ✅ Quality & Reproducibility
 
-The dataset was checked for:
-
-- Missing provider codes
-- Missing provider names
-- Missing regions
-- Missing reporting months
-- Duplicate provider-month records
-- Attendance reconciliation errors
-- Under-four-hour reconciliation errors
-- Over-four-hour reconciliation errors
-- Emergency-admission reconciliation errors
-- Invalid percentage ranges
-
-A source note stated that **East Kent Hospitals University NHS Foundation Trust's July 2026 data was incomplete and may be subject to revision**.
+The repository includes an automated **Portfolio Quality** workflow validating required notebook, SQL, dashboard and documentation assets.
 
 ---
 
-## Key Findings
+## ⚖️ Methodology & Limitations
 
-### A&E Demand
-
-Total A&E attendances peaked in **July 2026 at 2,487,580**.
-
-| Month | Total Attendances |
-|---|---:|
-| April 2026 | 2,345,329 |
-| May 2026 | 2,457,398 |
-| June 2026 | 2,437,906 |
-| July 2026 | 2,487,580 |
-| August 2026 | 2,342,959 |
-
-### Four-Hour Performance
-
-National four-hour performance declined from **76.91% in April** to **75.04% in August 2026**.
-
-The lowest monthly performance was **75.02% in June**.
-
-### Regional Performance
-
-Across the five-month period:
-
-- London: approximately **78.18%**
-- South West: approximately **71.97%**
-
-All seven NHS England regions recorded lower four-hour performance in August than in April.
-
-Largest April-to-August declines:
-
-- East of England: **-2.48 percentage points**
-- South East: **-2.48 percentage points**
-- Midlands: **-2.00 percentage points**
-
-### Type 1 Provider Benchmarking
-
-The formal benchmark included **120 Type 1 providers with complete five-month reporting**.
-
-| Statistic | Four-Hour Performance |
-|---|---:|
-| Mean | 61.59% |
-| Median | 61.03% |
-| 25th percentile | 54.64% |
-| 75th percentile | 66.59% |
-| Minimum | 36.24% |
-| Maximum | 92.64% |
-
-### 12-Hour Decision-to-Admit Waits
-
-| Region | 12-Hour Waits per 1,000 A&E Admissions |
-|---|---:|
-| North West | 162.93 |
-| Midlands | 162.87 |
-| London | 157.65 |
-| South East | 110.75 |
-| South West | 96.31 |
-| East of England | 95.94 |
-| North East & Yorkshire | 46.10 |
-
-The national rate peaked in **May at 124.96 per 1,000 admissions** and fell to **114.42 in August**.
-
-### Four-Hour Performance vs 12-Hour Waits
-
-Providers in the lowest Type 1 four-hour performance quartile recorded:
-
-**136.80 twelve-hour waits per 1,000 A&E admissions**
-
-compared with:
-
-**88.90 per 1,000**
-
-for providers in the top quartile.
-
-The provider-level Pearson correlation was:
-
-**r = -0.235**
-
-This indicates a **weak negative association** and should not be interpreted as causal.
-
-### Provider Performance Change
-
-Largest improvement:
-
-**Birmingham Women's and Children's NHS Foundation Trust**
-
-- April: 80.94%
-- August: 92.33%
-- Change: **+11.39 percentage points**
-
-Largest deterioration:
-
-**York and Scarborough Teaching Hospitals NHS Foundation Trust**
-
-- April: 62.17%
-- August: 49.57%
-- Change: **-12.60 percentage points**
+- Provider benchmarking focuses on **Type 1 Major A&E departments** to improve comparability.
+- Four-hour performance is calculated from aggregated counts, not by averaging provider percentages.
+- Twelve-hour waits are normalised per 1,000 A&E admissions.
+- The observed correlation between performance measures is not causal.
+- East Kent Hospitals University NHS Foundation Trust's July 2026 source data was flagged as incomplete and subject to revision.
+- Provider performance should be interpreted alongside case mix, service configuration and local operating context.
 
 ---
 
-## A&E Demand Mix
+## 📁 Repository Structure
 
-Demand composition remained relatively stable:
-
-- Type 1 Major A&E: approximately **61%**
-- Type 3 activity: approximately **36–37%**
-- Type 2 activity: approximately **2%**
-
-The A&E emergency admission rate remained around **16.3%–16.8%**.
-
----
-
-## SQL Analysis
-
-PostgreSQL was used to reproduce and extend the Python analysis.
-
-SQL analysis includes:
-
-- Data-quality validation
-- National monthly performance
-- Regional performance
-- Monthly regional trends
-- Patient-flow analysis
-- 12-hour wait rates
-- Type 1 provider benchmarking
-- Provider performance change
-- Power BI analytical view creation
-
-Main SQL script:
-
-`sql/01_nhs_hospital_performance_analysis.sql`
+```text
+nhs-hospital-performance-analysis/
+├── .github/workflows/portfolio-quality.yml
+├── data/
+├── docs/
+├── images/
+│   ├── readme/hero.svg
+│   ├── nhs_dashboard_overview.png
+│   └── nhs_provider_change_analysis.png
+├── notebooks/
+├── powerbi/
+├── sql/
+└── README.md
+```
 
 ---
 
-## Power BI
+## 👨🏾‍💻 Author
 
-Power BI connects directly to PostgreSQL through:
-
-`vw_ae_provider_performance`
-
-DAX measures include:
-
-- Four Hour Performance %
-- Type 1 Four Hour Performance %
-- A&E Admission Rate %
-- 12 Hour Waits per 1,000
-- Months Reported
-- Apr-Aug Type 1 Change (pp)
-
-Dashboard functionality includes:
-
-- National KPI cards
-- Region filtering
-- Month filtering
-- Monthly performance trends
-- Regional comparisons
-- Type 1 provider benchmarking
-- 12-hour wait analysis
-- Provider improvement analysis
-- Provider deterioration analysis
-
----
-
-## Project Structure
-
-    nhs-hospital-performance-analysis/
-    │
-    ├── data/
-    │   ├── raw/
-    │   └── processed/
-    │
-    ├── images/
-    │   ├── nhs_dashboard_overview.png
-    │   └── nhs_provider_change_analysis.png
-    │
-    ├── notebooks/
-    │   └── 01_data_preparation.ipynb
-    │
-    ├── powerbi/
-    │   └── NHS_Hospital_Performance_Dashboard.pbix
-    │
-    ├── sql/
-    │   └── 01_nhs_hospital_performance_analysis.sql
-    │
-    ├── .gitignore
-    └── README.md
-
----
-
-## Analytical Workflow
-
-    NHS England Excel Workbooks
-              ↓
-    Python Cleaning & Validation
-              ↓
-    Processed Analytical Dataset
-              ↓
-           PostgreSQL
-              ↓
-          SQL Analysis
-              ↓
-     Power BI Analytical View
-              ↓
-          DAX Measures
-              ↓
-      Interactive Dashboard
-
----
-
-## Analytical Notes
-
-Four-hour performance is calculated from aggregated counts rather than by averaging provider-level percentages:
-
-**Attendances within four hours ÷ Total attendances × 100**
-
-12-hour decision-to-admit waits are normalised as:
-
-**12-hour waits ÷ Emergency admissions via A&E × 1,000**
-
-Provider benchmarking focuses on **Type 1 Major A&E departments** because different A&E department types have different operating models and patient populations.
-
----
-
-## Author
-
-**Oluwatosin Oluwaseun Mulero**
-
-MSc Data Science
-
-**Data Analytics | Business Intelligence | Data Science**
+**Oluwatosin Oluwaseun Mulero**  
+**Data Analyst | Data Scientist | Business Intelligence**

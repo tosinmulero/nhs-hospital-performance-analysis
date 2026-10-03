@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071A52"/>
+      <stop offset="50%" stop-color="#005EB8"/>
+      <stop offset="100%" stop-color="#00A9CE"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00A9CE"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="1260" cy="55" r="180" fill="#FFFFFF" opacity="0.05"/>
+  <circle cx="1325" cy="350" r="220" fill="#FFFFFF" opacity="0.035"/>
+  <g transform="translate(78,74)">
+    <rect width="118" height="118" rx="24" fill="#FFFFFF" opacity="0.97"/>
+    <rect x="24" y="72" width="15" height="22" rx="4" fill="#005EB8"/>
+    <rect x="50" y="50" width="15" height="44" rx="4" fill="#00A9CE"/>
+    <rect x="76" y="28" width="15" height="66" rx="4" fill="#38BDF8"/>
+    <path d="M24 61 C44 35, 64 47, 91 18" fill="none" stroke="#00A9CE" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="228" y="118" font-family="Segoe UI,Arial,sans-serif" font-size="46" font-weight="800" fill="#FFFFFF">NHS Hospital Performance &amp; Patient Flow Analysis</text>
+  <text x="230" y="173" font-family="Segoe UI,Arial,sans-serif" font-size="23" font-weight="500" fill="#E2E8F0">Provider benchmarking, A&amp;E demand and patient-flow analytics using NHS England data</text>
+  <rect x="230" y="205" width="860" height="5" rx="3" fill="url(#accent)"/>
+  <text x="230" y="272" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">Python • PostgreSQL • SQL • Power BI • DAX • Healthcare Analytics</text>
+  <text x="230" y="332" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#E2E8F0">Recruiter-ready analytics case study • Reproducible workflow • Business-focused insight</text>
+  <text x="230" y="371" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#CBD5E1">Portfolio project by Oluwatosin Oluwaseun Mulero</text>
+</svg>
